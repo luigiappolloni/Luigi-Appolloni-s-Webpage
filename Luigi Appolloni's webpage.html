@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Luigi Appolloni - Pagina Personale</title>
+  <style>
+    /* ... (altri stili CSS come prima) ... */
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #f0f0f0, #d9e4f5);
+      scroll-behavior: smooth;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 240px;
+      background-color: #2c3e50;
+      color: white;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      transition: 0.3s;
+      display: block;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .content {
+      flex: 1;
+      padding: 50px;
+    }
+    h1, h2, h3, p, li {
+      color: #333;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    .home-container {
+      display: flex;
+      align-items: flex-start; /* Allinea foto e testo in alto */
+      gap: 30px; /* Spazio tra foto e testo */
+      flex-wrap: wrap;
+    }
+
+    /* Stili aggiornati per la foto (non più quadrata) */
+    .home-photo {
+      width: 200px;        /* Larghezza fissa desiderata */
+      height: auto;         /* Altezza automatica per mantenere le proporzioni */
+      object-fit: unset;    /* Non necessario con height: auto */
+      display: block;       /* Buona pratica per il layout delle immagini */
+      border-radius: 8px;   /* Angoli arrotondati */
+      border: 4px solid #2c3e50; /* Bordo */
+      flex-shrink: 0;       /* Impedisce alla foto di rimpicciolirsi */
+    }
+
+    .home-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .home-text p {
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+    .contact-info {
+        margin-top: 20px;
+    }
+    .contact-info p {
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    .contact-info strong {
+        display: inline-block;
+        min-width: 60px;
+    }
+    .doi-link {
+        color: #0056b3;
+        text-decoration: underline;
+        margin-left: 8px;
+        font-size: 0.9em;
+    }
+    .doi-link:hover {
+        text-decoration: none;
+    }
+
+    /* REGOLE PER I SEPARATORI */
+    section + section {
+      border-top: 1px solid #e0e0e0;
+      padding-top: 40px;
+      margin-top: 40px;
+    }
+    section:last-child {
+       margin-bottom: 0;
+    }
+    /* FINE REGOLE SEPARATORI */
+
+    /* VERSIONE RESPONSIVE */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .sidebar a {
+        flex: 1 0 100px;
+        font-size: 16px;
+      }
+      .content {
+        padding: 20px;
+      }
+      /* Responsive: foto sopra, testo sotto */
+      .home-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .home-photo {
+          width: 80%; /* Rendi la foto più larga su mobile */
+          max-width: 250px; /* Ma non eccessivamente grande */
+          height: auto; /* Mantiene proporzioni */
+          margin-bottom: 20px;
+      }
+      .home-text {
+        min-width: unset;
+      }
+      .contact-info {
+          text-align: center;
+      }
+       .contact-info strong {
+        display: block;
+        min-width: unset;
+        margin-bottom: 2px;
+      }
+      section {
+          margin-bottom: 30px;
+      }
+      section + section {
+          padding-top: 30px;
+          margin-top: 30px;
+      }
+      section:last-child {
+         margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    <a href="#home">Home</a>
+    <a href="#scientific-interests">Scientific Interests</a>
+    <a href="#employment">Employment</a>
+    <a href="#education">Education</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#publications">Publications</a>
+    <a href="#seminars">Seminars</a>
+    <a href="#research-visits">Research Visits</a>
+    <a href="#organised-conferences">Organised Conferences</a>	
+  </div>
+
+  <div class="content">
+
+    <section id="home">
+      <h1> Dr Luigi Appolloni</h1>
+      <div class="home-container">
+        <img class="home-photo" src="luigiappolloni.jpg" alt="Foto di Luigi Appolloni">
+
+        <div class="home-text">
+           <p>Welcome to my personal webpage. I am Luigi Appolloni, a Research Fellow in Geometric Analysis within the School of Mathematics at the University of Leeds, mentored by <a href="https://drbensharp.github.io/" style="text-decoration: underline;">Dr Ben Sharp</a>.</p>
+           <p>Previously, I completed a Ph.D. in Mathematics at the Università degli Studi di Milano-Bicocca under the supervision of <a href="https://www.unimib.it/simone-secchi" style="text-decoration: underline;">Professor Simone Secchi</a>. Here you can find details about my research interests, publications, and academic activities.</p>
+
+           <div class="contact-info">
+               <p>Please feel free to reach out if you have any questions or would like to connect!</p>
+               <p><strong>Email:</strong> l.appolloni[at]leeds.ac.uk</p>
+               <p>
+                   <strong>Address:</strong><br>
+                   School of Mathematics<br>
+                   University of Leeds<br>
+                   Leeds, LS2 9JT<br>
+                   UK
+               </p>
+               <p>
+                   <strong>ORCID:</strong> <a href="https://orcid.org/0000-0003-2437-7083" target="_blank" class="doi-link" style="font-size: 1em; margin-left: 0;">0000-0003-2437-7083</a>
+               </p>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scientific-interests">
+      <h2>Scientific Interests</h2>
+      </p> During my Ph.D., I studied the existence of solutions to some semilinear and quasilinear PDEs, involving both local and non-local operators. I used variational and topological methods to study problems where there was a loss of compactness, either due to the unboundedness of the domain or the presence of a critical Sobolev exponent.</p>
+
+</p> More recently, I have become interested in PDEs arising from differential geometry, in particular minimal/CMC surfaces and harmonic maps. In this context, I am working on better understanding the so-called bubbling phenomenon along a sequence of solutions.</p>
+    </section>
+
+    <section id="employment">
+      <h2>Employment</h2>
+      <ul>
+        <li>May 2023 – Present: Research Fellow in Geometric Analysis, University of Leeds. Supervisor: Dr B. Sharp.</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>2023 - PhD in Mathematics, Università degli Studi di Milano-Bicocca. Supervisor: Professor S. Secchi.</li>
+        <li>2018 - Master’s Degree in Mathematics, Università degli Studi di Perugia. Supervisor: Professor D. Mugnai and Professor P Pucci.</li>
+        <li>2015 - Bachelor’s Degree in Mathematics, Università degli Studi di Perugia.</li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li>2024 / 2025: MAGIC Course on Differentiable Manifolds, MAGIC Consortium.</li>
+        <li>2023 / 2024: Tutorial Sets for Sequences and Series (MATH1026), University of Leeds.</li>
+        <li>2023 / 2024: Minicourse on Fractional Sobolev Spaces and Variational Methods for Critical Kirchhoff Problems, University of Leeds.</li>
+        <li>2021 / 2022: Preparatory Course in Mathematics, Università degli Studi di Milano-Bicocca.</li>
+        <li>2021 / 2022: Teaching Assistant for Calculus I, Università degli Studi di Bergamo.</li>
+	<li>2020 / 2021: Preparatory Course in Mathematics, Università degli Studi di Milano-Bicocca.</li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3>Published papers</h3>
+      <ul>
+      	<li><strong>L. Appolloni</strong>, A non-local p-Kirchhoff critical problem without the Ambrosetti-Rabinowitz condition, J. Math. Anal. Appl., 2025.<a href="https://doi.org/10.1016/j.jmaa.2024.129194" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>G. Molica Bisci</strong>, <strong>S. Secchi</strong>, A note on the nonlinear Schrödinger equation on Cartan-Hadamard manifolds with unbounded and vanishing potentials, Math. Methods Appl. Sci., 2024.<a href="https://doi.org/10.1002/mma.9878" target="_blank" class="doi-link">Link</a></li>	
+	<li><strong>L. Appolloni</strong>, <strong>G. M. Bisci</strong>, <strong>S. Secchi</strong>, Multiple solutions for Schrödinger equations on Riemannian manifolds via ∇-theorems, Annals of Global Analysis and Geometry, 2023.<a href="https://doi.org/10.1007/s10455-023-09885-1" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>G. Molica Bisci</strong>, <strong>S. Secchi</strong>, Schrödinger equation on Cartan-Hadamard manifolds with oscillating nonlinearities, J. Math. Anal. Appl., 2023.<a href="https://doi.org/10.1016/j.jmaa.2022.126853" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>A. Fiscella</strong>, <strong>S. Secchi</strong>, A perturbed fractional p-Kirchhoff problem with critical nonlinearity, Asymptotic Analysis, 2022.<a href="https://doi.org/10.3233/asy-221809" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>G. Molica Bisci</strong>, <strong>S. Secchi</strong>, On critical Kirchhoff problems driven by the fractional Laplacian, Calc. Var. Partial Differential Equations, 2021.<a href="https://doi.org/10.1007/s00526-021-02065-8" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>D. Mugnai</strong>, Fractional weighted problems with a general nonlinearity or with concave-convex nonlinearities, Math. Methods Appl. Sci., 2021.<a href="https://doi.org/10.1002/mma.7515" target="_blank" class="doi-link">Link</a></li>
+        <li><strong>L. Appolloni</strong>, <strong>S. Secchi</strong>, Normalized solutions for the fractional NLS with mass supercritical nonlinearity, J. Differential Equations, 2021.<a href="https://doi.org/10.1016/j.jde.2021.03.016" target="_blank" class="doi-link">Link</a></li>
+      </ul>
+
+      <h3>Preprints</h3>
+      <ul>
+        <li><strong>L. Appolloni</strong>, <strong>R. Molle</strong>, Normalized Schrödinger equations with mass-supercritical nonlinearity in exterior domains, <a href="https://arxiv.org/abs/2503.09262" target="_blank" class="doi-link" style="font-size: 1em; margin-left: 0;">arXiv:2503.09262</a>.</li>
+        <li><strong>L. Appolloni</strong>, <strong>B. Sharp</strong>, A note on moving frames along Sobolev maps and the regularity of weakly harmonic maps, <a href="https://arxiv.org/abs/2502.18078" target="_blank" class="doi-link" style="font-size: 1em; margin-left: 0;">arXiv:2502.18078</a>.</li>
+      </ul>
+    </section>
+
+    <section id="seminars">
+     <h2>Seminars</h2>
+      <ul>
+       <li>January 2025 – University of Warsaw, Workshop for young researchers in PDEs.</li>
+       <li>September 2024 – Università degli Studi di Milano-Bicocca and Università degli Studi di Milano Statale, Young Researchers Meeting on PDEs.</li>
+       <li>September 2024 – Scuola Normale Superiore, Pisa (Internal seminar).</li>
+       <li>July 2024 – European Congress of Mathematics 2024, Seville.</li>
+       <li>May 2024 – International Conference on Elliptic and Parabolic Problems, Gaeta.</li>
+       <li>April 2024 – Università degli Studi di Roma "Tor Vergata" (Internal seminar).</li>
+       <li>July 2022 – Università degli Studi di Urbino, Two Nonlinear Days in Urbino 2022.</li>
+       <li>December 2022 – Università degli Studi di Milano-Bicocca (Internal seminar, "Insalate di Matematica").</li>
+       <li>October 2022 – Università degli Studi di Milano-Bicocca, Bilux Ph.D. Meeting.</li>
+       <li>May 2022 – Universidad de Granada (Internal seminar).</li>
+      </ul>
+    </section>
+
+    <section id="research-visits">
+      <h2>Research Visits</h2>
+      <ul>
+        <li>November/December 2024: University of Western Australia. Invited by: Professor S. Dipierro and Professor E. Valdinoci.</li>
+	<li>September 2024: Scuola Normale Superiore, Pisa. Invited by: Professor A. Malchiodi.</li>
+        <li>April 2024: Università degli Studi di Roma "Tor Vergata". Invited by: Professor R. Molle.</li>
+        <li>April/May 2022: Universidad de Granada. Invited by: Professor D. Ruiz.</li>
+        <li>July 2022: Università degli Studi di Urbino Carlo Bo. Invited by: Professor G. Molica Bisci.</li>
+      </ul>
+    </section>
+
+<section id="organised-conferences">
+      <h2>Organised Conferences</h2>
+      <ul>
+        <li>October 2024: Bilux Ph.D. Meeting, Università degli Studi di Milano-Bicocca.</li>
+        <li>2020 - 2022: <a href="https://sites.google.com/view/insalate-di-matematica/home" style="text-decoration: underline;">Insalate di Matematica</a> , Series of seminars at the Università degli Studi di Milano-Bicocca.</li>
+      </ul>
+    </section>
+
+
+  </div>
+</div>
+
+</body>
+</html>
